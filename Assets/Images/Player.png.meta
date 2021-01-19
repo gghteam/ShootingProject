@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: -7446026091647042388
     second: Slash
+  - first:
+      213: 5938012242645255967
+    second: EnemyBullet
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -264,6 +267,27 @@ TextureImporter:
       bones: []
       spriteID: cac761b68b66aa890800000000000000
       internalID: -7446026091647042388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyBullet
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 156
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f178aca7cae086250800000000000000
+      internalID: 5938012242645255967
       vertices: []
       indices: 
       edges: []
