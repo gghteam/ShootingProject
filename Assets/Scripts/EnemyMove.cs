@@ -16,13 +16,16 @@ public class EnemyMove : MonoBehaviour
     private int currentHp = 2;
     private SpriteRenderer spriteRenderer = null;
     private Animator animator = null;
+    private Collider2D col = null;
     
     protected virtual void Start()
     {
         currentHp = hp;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();        
         animator.Play("Idle");
+        col = GetComponent<Collider2D>();
+        col.enabled = true;
     }
 
     protected virtual void Update()
@@ -46,6 +49,7 @@ public class EnemyMove : MonoBehaviour
             if (currentHp <= 0)
             {
                 isDead = true;
+                col.enabled = false;
                 GameManager.Instance.score += rewardScore;
                 GameManager.Instance.UpdateScore();
                 animator.Play("Explosion");
