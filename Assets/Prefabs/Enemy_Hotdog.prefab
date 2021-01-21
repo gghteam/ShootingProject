@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7878828653372811269}
   - component: {fileID: 5998957198415145405}
   - component: {fileID: 7531638846770795342}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Enemy_Hotdog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

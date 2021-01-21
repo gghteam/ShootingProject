@@ -11,12 +11,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if (shuttingDown)
-            {
-                Debug.Log("[Singleton] Instance '" + typeof(T) + "' already CHOIed. Returning null.");
-                return null;
-            }
-
             lock (locker)
             {
                 if(instance == null)
@@ -25,22 +19,11 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
                     if(instance == null)
                     {
                         instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
-                        DontDestroyOnLoad(instance);
                     }
                 }
             }
 
             return instance;
         }
-    }
-
-    private void OnApplicationQuit()
-    {
-        shuttingDown = true;
-    }
-
-    private void OnDestroy()
-    {
-        shuttingDown = true;
     }
 }

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float speed = 0.5f;
+
+    private void Update()
     {
-        
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        if(transform.localPosition.y > GameManager.Instance.maximumPosition.y)
+        {
+            Despawn();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Despawn()
     {
-        
+        gameObject.SetActive(false);
+        transform.SetParent(GameManager.Instance.poolManager.transform, false);
     }
 }

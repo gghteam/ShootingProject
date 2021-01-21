@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -21,7 +21,8 @@ public class PlayerMove : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        col.enabled = true;        
+        col.enabled = true;
+        StartCoroutine(Fire());
     }
 
     private void Update()
@@ -43,7 +44,56 @@ public class PlayerMove : MonoBehaviour
     {
         while (true)
         {
+            SpawnBullet();
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
 
+    private void SpawnBullet()
+    {
+        GameObject newBullet = null;
+        if(GameManager.Instance.poolManager.transform.childCount > 0)
+        {
+            newBullet = GameManager.Instance.poolManager.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+            newBullet = Instantiate(bulletPrefab);
+        }
+
+        newBullet.transform.SetParent(null);
+        newBullet.transform.position = bulletPosition.position;
+        newBullet.SetActive(true);
+    }
+
+    private IEnumerator Revive()
+    {
+        col.enabled = false;
+
+        int count = 0;
+        while(count < 5)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(0.25f);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(0.25f);
+            count++;
+        }
+
+        col.enabled = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(GameManager.Instance.life > 0)
+        {
+            GameManager.Instance.life--;
+            GameManager.Instance.UpdateLife();
+            StartCoroutine(Revive());
+        }
+        else
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
