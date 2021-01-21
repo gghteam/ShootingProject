@@ -6,7 +6,7 @@ public class EnemyHotdog : EnemyMove
 {
     [SerializeField]
     private GameObject bulletPrefab = null;
-    private Vector3 direction = Vector3.zero;
+    private Vector2 direction = Vector2.zero;
     private float shootAngle = 0f;
 
     protected override void Start()
@@ -47,9 +47,10 @@ public class EnemyHotdog : EnemyMove
         newBullet.GetComponent<BulletMove>().SetBulletMode(BulletMove.BULLET_MODE.ENEMY);
         newBullet.transform.SetParent(null);
         newBullet.transform.position = transform.position;
-        direction = transform.InverseTransformPoint(GameManager.Instance.player.transform.position);
-        shootAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        newBullet.transform.Rotate(0f, 0f, -shootAngle, Space.Self);
+
+        direction = GameManager.Instance.player.transform.position - transform.position;
+        shootAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        newBullet.transform.rotation = Quaternion.AngleAxis(shootAngle-90f, Vector3.forward);
         newBullet.SetActive(true);
     }
 }
