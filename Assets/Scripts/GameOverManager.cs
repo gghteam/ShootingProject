@@ -8,7 +8,7 @@ public class GameOverManager : MonoBehaviour
     private Text highScoreText = null;
     private void Start()
     {
-        
+        highScoreText.text = string.Format("HIGHSCORE\n{0}", PlayerPrefs.GetInt("HIGHSCORE", 100000));
     }
     public void OnClickStartButton()
     {
