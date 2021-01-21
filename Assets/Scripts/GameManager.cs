@@ -16,6 +16,10 @@ public class GameManager : MonoSingleton<GameManager>
     private Text lifeText = null;
 
     public PoolManager poolManager { get; private set; }
+    public PlayerMove player { get; private set; }
+
+    public readonly int PLAYER_LAYER = 8;
+    public readonly int ENEMY_LAYER = 9;
 
     public int score = 0;
     public int highScore = 500;
@@ -27,9 +31,11 @@ public class GameManager : MonoSingleton<GameManager>
     private void OnEnable()
     {
         poolManager = FindObjectOfType<PoolManager>();
+        player = FindObjectOfType<PlayerMove>();
         UpdateLife();
         UpdateHighScore();
         StartCoroutine(SpawnCroissant());
+        StartCoroutine(SpawnHotdog());
     }
 
     public void UpdateScore()
@@ -56,6 +62,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator SpawnCroissant()
     {
+        yield return new WaitForSeconds(5f);
         while (true)
         {
             float randomX = Random.Range(-6f, 6f);
@@ -67,6 +74,23 @@ public class GameManager : MonoSingleton<GameManager>
                 count++;
             }
             float delay = Random.Range(2f, 5f);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+    private IEnumerator SpawnHotdog()
+    {
+        yield return new WaitForSeconds(10f);
+        while (true)
+        {
+            float randomY = Random.Range(0f, 6f);
+            int count = 0;
+            while (count < 3)
+            {
+                Instantiate(enemyHotdog, new Vector2(6f, randomY), Quaternion.identity);
+                yield return new WaitForSeconds(0.5f);
+                count++;
+            }
+            float delay = Random.Range(10f, 15f);
             yield return new WaitForSeconds(delay);
         }
     }

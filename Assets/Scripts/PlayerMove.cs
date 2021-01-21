@@ -61,8 +61,10 @@ public class PlayerMove : MonoBehaviour
             newBullet = Instantiate(bulletPrefab);
         }
 
+        newBullet.GetComponent<BulletMove>().SetBulletMode(BulletMove.BULLET_MODE.PLAYER);
         newBullet.transform.SetParent(null);
         newBullet.transform.position = bulletPosition.position;
+        newBullet.transform.rotation = Quaternion.identity;
         newBullet.SetActive(true);
     }
 

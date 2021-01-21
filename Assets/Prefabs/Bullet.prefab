@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  playerBulletSprite: {fileID: 21300000, guid: 0e06e6467055e124a88ddff247db4168, type: 3}
+  enemyBulletSprite: {fileID: 21300000, guid: cbe141d75a0746443948145468565b38, type: 3}
 --- !u!50 &1937631862274513649
 Rigidbody2D:
   serializedVersion: 4

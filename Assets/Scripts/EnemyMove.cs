@@ -28,11 +28,7 @@ public class EnemyMove : MonoBehaviour
     protected virtual void Update()
     {
         if (isDead) { return; }
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-        if(transform.localPosition.y < GameManager.Instance.minimumPosition.y)
-        {
-            Destroy(gameObject);
-        }
+        CheckLimit();        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -67,5 +63,17 @@ public class EnemyMove : MonoBehaviour
         spriteRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0f));
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0f));
+    }
+
+    private void CheckLimit()
+    {
+        if (transform.localPosition.x < GameManager.Instance.minimumPosition.x-2f || transform.localPosition.x > GameManager.Instance.maximumPosition.x+2f)
+        {
+            Destroy(gameObject);
+        }
+        if (transform.localPosition.y < GameManager.Instance.minimumPosition.y-5f || transform.localPosition.y > GameManager.Instance.maximumPosition.y+5f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
