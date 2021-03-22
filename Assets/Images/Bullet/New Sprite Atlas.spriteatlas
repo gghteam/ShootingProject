@@ -40,11 +40,13 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 21300000, guid: 0e06e6467055e124a88ddff247db4168, type: 3}
     - {fileID: 21300000, guid: 6ad8fff5665571648b3f87bff13e9c06, type: 3}
     - {fileID: 21300000, guid: cbe141d75a0746443948145468565b38, type: 3}
+    totalSpriteSurfaceArea: 12636
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -57,5 +59,6 @@ SpriteAtlas:
   - Enemy_KetchupDrop
   - Bullet
   - Enemy_MustardDrop
+  m_RenderDataMap: {}
   m_Tag: New Sprite Atlas
   m_IsVariant: 0
