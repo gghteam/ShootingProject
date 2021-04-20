@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4024912474441483936}
   - component: {fileID: 228130438650703105}
   - component: {fileID: 3740316013362540483}
-  - component: {fileID: 868102024100964372}
   m_Layer: 10
   m_Name: Enemy_MustardDrop
   m_TagString: Untagged
@@ -49,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -121,16 +121,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.15}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &868102024100964372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4874206591903569141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7aac3b4e811f454fa18099b0ae1e0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.05
