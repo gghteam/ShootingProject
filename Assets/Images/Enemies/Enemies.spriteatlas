@@ -40,6 +40,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: dc4a22b7b2989ab478086bf4acbc3686, type: 3}
@@ -49,6 +50,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: aa77ec63c8cbdd64cbc5c54fbac21203, type: 3}
     - {fileID: 2800000, guid: 5c2f590021c81794ca66b3dcef4f0810, type: 3}
     - {fileID: 2800000, guid: 783cf40fc92a25d4586c93de7f801e6b, type: 3}
+    totalSpriteSurfaceArea: 584963
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -69,5 +71,6 @@ SpriteAtlas:
   - Enemy_Croissant
   - Enemy_MustardDrop
   - Enemy_Hotdog
+  m_RenderDataMap: {}
   m_Tag: Enemies
   m_IsVariant: 0
